@@ -4,16 +4,15 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { textAlign } from "@material-ui/system";
-import tituloprincipal from "./prueba-titulo2.svg";
+import tituloprincipal from "../img/prueba-titulo2.svg";
 import IconButton from "@material-ui/core/IconButton";
-import barnav from "./barnav.scss";
+
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery"; //se usa para mediaquery libreria de react
 import MenuIcon from "@material-ui/icons/Menu";
-import Desp from "./ejercisios/menudesplegable1.js";
-import risas from "../components/img/risas.svg";
+import Desp from "./burgerMenu";
+
 import { Link } from "react-router-dom";
-import Spring from "../components/ejercisios/use-spring";
 
 const useStyles = makeStyles({
   root: {

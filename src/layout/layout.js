@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./piepagina";
+import Footer from "./footer";
 import BarNav from "./barnav";
 
 function Layouts(props) {
