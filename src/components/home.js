@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
-import Pieza from "../img/programing-web-programing1.svg";
+import Pieza from "../img/pieza.svg";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

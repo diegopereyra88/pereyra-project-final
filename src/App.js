@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import EjemploHome from "./ejemplos/home";
+import Home from "./components/home";
 import Layout from "./layout/layout";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route exact path="/" component={EjemploHome} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Layout>
     </BrowserRouter>
