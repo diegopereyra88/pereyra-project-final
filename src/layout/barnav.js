@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { textAlign } from "@material-ui/system";
 import tituloprincipal from "../img/prueba-titulo2.svg";
 import IconButton from "@material-ui/core/IconButton";
-
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery"; //se usa para mediaquery libreria de react
 import MenuIcon from "@material-ui/icons/Menu";
@@ -31,9 +31,10 @@ export default function SimpleAppBar() {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       <AppBar position="static" style={{ backgroundColor: "#FFF11E" }}>
         <Toolbar
-          changeColorOnScroll={{
+          changecoloronscroll={{
             height: 400,
             color: "white",
           }}
@@ -57,13 +58,13 @@ export default function SimpleAppBar() {
                 }}
               />
             </Link>
-            {titulos && <Button color="dark">ART</Button>}{" "}
+            {titulos && <Button color="default">ART</Button>}{" "}
             {/*se usa para mediaquery libreria de react*/}
-            {titulos && <Button color="dark">GAMING</Button>}
-            {titulos && <Button color="dark">ANIMATION</Button>}
-            {titulos && <Button color="dark">DESIGN</Button>}
-            {titulos && <Button color="dark">MUSIC</Button>}
-            {titulos && <Button color="dark">GAME DESIGN</Button>}
+            {titulos && <Button color="default">GAMING</Button>}
+            {titulos && <Button color="default">ANIMATION</Button>}
+            {titulos && <Button color="default">DESIGN</Button>}
+            {titulos && <Button color="default">MUSIC</Button>}
+            {titulos && <Button color="default">GAME DESIGN</Button>}
           </Typography>
         </Toolbar>
       </AppBar>

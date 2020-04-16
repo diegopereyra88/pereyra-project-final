@@ -67,7 +67,7 @@ export default function CustomizedMenus() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
-        color="black"
+        color="default"
         onClick={handleClick}
       >
         <MenuIcon />

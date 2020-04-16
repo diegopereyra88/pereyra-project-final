@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
@@ -13,7 +14,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
-import Pieza from "../img/programing-web-programing1.svg";
+import Pieza from "../img/art3-11.svg";
+import firebase from "firebase";
+import "firebase/firestore";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -51,7 +54,19 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //array recorrido para mostrar las im
 
 export default function Album() {
   const classes = useStyles();
-
+  let [results, setResults] = useState([]);
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("fotos")
+      .onSnapshot((snap) => {
+        let array = [];
+        snap.forEach((doc) => {
+          array.push(doc.data());
+        });
+        setResults(array);
+      });
+  });
   return (
     <React.Fragment>
       <CssBaseline />
@@ -109,12 +124,12 @@ export default function Album() {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {results.map((r, i) => (
+              <Grid item key={i} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={Pieza}
+                    image={r.img}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
