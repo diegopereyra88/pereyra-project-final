@@ -1,7 +1,7 @@
 import React from "react";
 
 import Home from "./components/home-final";
-import Music from "./ejemplos/music";
+import Music from "./components/music";
 import Layout from "./layout/layout";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";

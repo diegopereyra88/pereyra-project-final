@@ -117,10 +117,10 @@ export default function MediaControlCard() {
   return (
     <React.Fragment>
       <main className={classes.mainStyle}>
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid}>
           <Grid container spacing={6}>
             {results.map((r, i) => (
-              <Grid item key={i} xs={12} sm={6} md={6}>
+              <Grid item key={i} xs={12} sm={6} md={4}>
                 <Card className={classes.root}>
                   <div className={classes.details}>
                     <CardContent className={classes.content}>

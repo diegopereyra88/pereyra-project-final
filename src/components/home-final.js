@@ -118,7 +118,7 @@ export default function Album() {
         
         */}
 
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid}>
           {/* End hero unit */}
           <Grid container spacing={4}>
             {results.map((r, i) => (
