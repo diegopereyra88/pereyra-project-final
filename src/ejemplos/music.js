@@ -8,7 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider, Grid } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 import AudioPlayer from "material-ui-audio-player";
 import firebase from "firebase";
 import "firebase/firestore";
@@ -32,7 +33,7 @@ const stylos = makeStyles((theme) => ({
     },
   },
   playIcon: {
-    color: "#f50057",
+    color: "#6D559E",
     "&:hover": {
       color: "#ff4081",
     },
@@ -47,15 +48,15 @@ const stylos = makeStyles((theme) => ({
     color: "rgba(0, 0, 0, 0.54)",
   },
   mainSlider: {
-    color: "#3f51b5",
+    color: "#6D559E",
     "& .MuiSlider-rail": {
-      color: "#7986cb",
+      color: "#6D559E",
     },
     "& .MuiSlider-track": {
-      color: "#3f51b5",
+      color: "#6D559E",
     },
     "& .MuiSlider-thumb": {
-      color: "#303f9f",
+      color: "#6D559E",
     },
   },
 }));
@@ -69,9 +70,19 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flex: "1 0 auto",
+    backgroundColor: "#CAB2E2",
+    boxShadow: "0%",
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+    backgroundColor: "#6D559E",
   },
   cover: {
-    width: 151,
+    width: "50%",
+  },
+  mainStyle: {
+    backgroundColor: "#6D559E",
   },
   controls: {
     display: "flex",
@@ -105,31 +116,41 @@ export default function MediaControlCard() {
 
   return (
     <React.Fragment>
-      {results.map((r, i) => (
-        <Card className={classes.root} key={i}>
-          <div className={classes.details}>
-            <CardContent className={classes.content}>
-              <Typography component="h5" variant="h5">
-                {r.title}
-              </Typography>
+      <main className={classes.mainStyle}>
+        <Container className={classes.cardGrid} maxWidth="md">
+          <Grid container spacing={6}>
+            {results.map((r, i) => (
+              <Grid item key={i} xs={12} sm={6} md={6}>
+                <Card className={classes.root}>
+                  <div className={classes.details}>
+                    <CardContent className={classes.content}>
+                      <Typography component="h5" variant="h5">
+                        {r.title}
+                      </Typography>
 
-              <Typography variant="subtitle1" color="textSecondary">
-                {r.autor}
-              </Typography>
-              <br />
+                      <Typography variant="subtitle1" color="textSecondary">
+                        {r.autor}
+                      </Typography>
+                      <br />
 
-              <AudioPlayer useStyles={stylos} src={r.song} loop={true} />
-            </CardContent>
-          </div>
-          <CardMedia
-            className={classes.cover}
-            image={r.img}
-            title="Se nace del temor"
-          />
-        </Card>
-      ))}
-      <MusicEjemplo />
-      <MusicEjemplo />
+                      <AudioPlayer
+                        useStyles={stylos}
+                        src={r.song}
+                        loop={true}
+                      />
+                    </CardContent>
+                  </div>
+                  <CardMedia
+                    className={classes.cover}
+                    image={r.img}
+                    title="Se nace del temor"
+                  />
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </main>
     </React.Fragment>
   );
 }

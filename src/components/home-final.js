@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Pieza from "../img/art3-11.svg";
 import firebase from "firebase";
 import "firebase/firestore";
@@ -124,11 +124,14 @@ export default function Album() {
             {results.map((r, i) => (
               <Grid item key={i} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={r.img}
-                    title={r.title}
-                  />
+                  <Link to={r.link}>
+                    {" "}
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={r.img}
+                      title={r.title}
+                    />
+                  </Link>
                 </Card>
               </Grid>
             ))}
